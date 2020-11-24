@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::namespace('App\Http\Controllers\Shorten')->group(function() {
+    Route::get('/', 'ShortenController@index')->name('index');
+    Route::post('/shorten', 'ShortenController@shorten')->name('shortenUrl');
+    Route::get('/go/{token}', 'ShortenController@redirectWithToken')->name('go');
 });
