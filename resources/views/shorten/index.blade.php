@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>URL Shortener</title>
+    <title>{{ __('shorten.urlShortener') }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
@@ -41,10 +41,11 @@
 <body class="text-center">
 <form action="{{ route('shortenUrl') }}" method="post" class="form-shortener">
     {{ csrf_field() }}
-    <h1 class="h3 mb-3 font-weight-normal">URL Shortener</h1>
-    <input type="text" name="destination_url" class="form-control" placeholder="Destination URL" required autofocus>
+    <h1 class="h3 mb-3 font-weight-normal">{{ __('shorten.urlShortener') }}</h1>
+    <input type="text" name="destination_url" class="form-control" placeholder="{{ __('shorten.destinationUrl') }}"
+           required autofocus>
     <br>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Shorten</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('shorten.shortenButton') }}</button>
     @php($token = Session::get('token'))
     @if(!is_null($token))
         <br>
